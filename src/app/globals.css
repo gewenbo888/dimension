@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #020207;
+  --ion: #7b5cff;
+  --cyan: #22e0ff;
+  --plasma: #c84dff;
+  --flare: #ffb454;
+  --ghost: #e8eaff;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--void);
+  color: var(--ghost);
+}
+
+body {
+  background-color: #020207;
+  background-image:
+    radial-gradient(ellipse 1200px 720px at 8% -10%, rgba(123, 92, 255, 0.18), transparent 60%),
+    radial-gradient(ellipse 1000px 560px at 94% 4%, rgba(34, 224, 255, 0.10), transparent 62%),
+    radial-gradient(ellipse 1300px 720px at 50% 122%, rgba(200, 77, 255, 0.13), transparent 60%);
+  font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: rgba(123, 92, 255, 0.42); color: #f4f1ff; }
+
+/* ---------- type ---------- */
+.display { font-family: "Cormorant Garamond", ui-serif, Georgia, serif; font-weight: 600; letter-spacing: 0.005em; }
+.zh { font-family: "Noto Serif SC", serif; font-weight: 500; }
+.label-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  letter-spacing: 0.28em; text-transform: uppercase; font-size: 0.6rem; color: #5cebff;
+}
+.mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+.ion-text {
+  color: #c0aeff;
+  text-shadow: 0 0 28px rgba(123, 92, 255, 0.7), 0 0 80px rgba(200, 77, 255, 0.34);
+}
+.cyan-text { color: #9bf4ff; text-shadow: 0 0 24px rgba(34, 224, 255, 0.6); }
+.flare-text { color: #ffe3b6; text-shadow: 0 0 28px rgba(255, 180, 84, 0.7), 0 0 70px rgba(255, 180, 84, 0.3); }
+.plasma-text { color: #ecbcff; text-shadow: 0 0 24px rgba(200, 77, 255, 0.6); }
+
+/* gradient spectral text — the dimensional spectrum */
+.spectral-text {
+  background: linear-gradient(100deg, #c0aeff 0%, #22e0ff 34%, #c84dff 66%, #ffb454 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+/* ---------- holographic panel ---------- */
+.holo {
+  background: linear-gradient(155deg, rgba(20, 18, 46, 0.66), rgba(6, 6, 18, 0.92));
+  border: 1px solid rgba(157, 131, 255, 0.13);
+  backdrop-filter: blur(12px);
+  transition: border-color 0.35s, box-shadow 0.35s, transform 0.35s;
+}
+.holo:hover { border-color: rgba(123, 92, 255, 0.42); box-shadow: 0 0 52px -18px rgba(123, 92, 255, 0.6); }
+
+.glass {
+  background: rgba(8, 8, 22, 0.55);
+  border: 1px solid rgba(157, 131, 255, 0.1);
+  backdrop-filter: blur(16px) saturate(1.2);
+}
+
+/* spectral divider */
+.rule-ion {
+  background: linear-gradient(90deg, transparent, rgba(123,92,255,0.65) 14%, rgba(34,224,255,0.55) 42%, rgba(200,77,255,0.55) 70%, rgba(255,180,84,0.5) 90%, transparent);
+}
+
+/* faint dimensional grid backdrop */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(123, 92, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123, 92, 255, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.grid-bg-fine {
+  background-image:
+    linear-gradient(rgba(34, 224, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 224, 255, 0.04) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ---------- animations ---------- */
+@keyframes flow { to { stroke-dashoffset: -36; } }
+.flow { stroke-dasharray: 4 8; animation: flow 1.4s linear infinite; }
+
+@keyframes pulseGlow { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+.pulse { animation: pulseGlow 2.6s ease-in-out infinite; }
+
+@keyframes drift { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+.drift { animation: drift 8s ease-in-out infinite; }
+
+@keyframes riseIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.rise-in { animation: riseIn 1s cubic-bezier(0.2,0.7,0.2,1) both; }
+.lang-fade { animation: riseIn 0.45s ease both; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.fade-in { animation: fadeIn 1.6s ease both; }
+
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+.spin-slow { animation: spinSlow 60s linear infinite; }
+
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.ticker { animation: ticker 44s linear infinite; }
+
+@keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+.caret { animation: blink 1s step-end infinite; }
+
+@keyframes breathe { 0%,100% { transform: scale(1); opacity: 0.85; } 50% { transform: scale(1.04); opacity: 1; } }
+.breathe { animation: breathe 6s ease-in-out infinite; }
+
+/* glitch — used by the Edge of Dimensions finale */
+@keyframes glitchShift {
+  0% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(12% 0 70% 0); transform: translate(-3px, 1px); }
+  40% { clip-path: inset(60% 0 12% 0); transform: translate(3px, -1px); }
+  60% { clip-path: inset(38% 0 40% 0); transform: translate(-2px, 0); }
+  80% { clip-path: inset(80% 0 4% 0); transform: translate(2px, 1px); }
+  100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+}
+.glitch { position: relative; }
+.glitch::before, .glitch::after {
+  content: attr(data-text); position: absolute; inset: 0; pointer-events: none;
+}
+.glitch::before { color: #22e0ff; animation: glitchShift 2.1s infinite steps(2); mix-blend-mode: screen; left: 2px; }
+.glitch::after { color: #c84dff; animation: glitchShift 1.7s infinite reverse steps(2); mix-blend-mode: screen; left: -2px; }
+
+::-webkit-scrollbar { width: 10px; background: #020207; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #161a38, #2a1f55); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #5a3cff; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+  html { scroll-behavior: auto; }
+}

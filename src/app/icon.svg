@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#020207"/>
+  <g fill="none" stroke-width="1.1" stroke-linejoin="round">
+    <!-- outer cube -->
+    <rect x="4.5" y="4.5" width="15" height="15" stroke="#22e0ff" opacity="0.85"/>
+    <rect x="11" y="11" width="15" height="15" stroke="#7b5cff" opacity="0.9"/>
+    <!-- connecting edges (the 4th-dimension extrusion) -->
+    <g stroke="#c84dff" opacity="0.75">
+      <line x1="4.5" y1="4.5" x2="11" y2="11"/>
+      <line x1="19.5" y1="4.5" x2="26" y2="11"/>
+      <line x1="4.5" y1="19.5" x2="11" y2="26"/>
+      <line x1="19.5" y1="19.5" x2="26" y2="26"/>
+    </g>
+  </g>
+  <circle cx="15.25" cy="15.25" r="1.5" fill="#ffb454"/>
+</svg>
